@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+set -euo pipefail
 
 OPTIND=1  # Reset in case getopts has been used previously in the shell.
 
@@ -37,7 +37,7 @@ if [ -z "${OUTPUT_PATH}" ] || [[ ( -z "${MEDIA_VOLUME_NAME}" )  &&  ( -z "${DB_C
     exit 1
 fi
 
-mkdir -p ${OUTPUT_PATH}
+mkdir -p "${OUTPUT_PATH}"
 DATE_NOW=$(date -u +"%Y-%m-%dT%H_%M_%S")
 
 if [ -n "${MEDIA_VOLUME_NAME}" ]; then
